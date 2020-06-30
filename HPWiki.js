@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Un-Fuck the Harry Potter Wiki
 // @namespace    https://eltrov.com
-// @version      0.1
+// @version      0.2
 // @description  The Harry Potter Wiki (located at https://harrypotter.fandom.com) is an abysmal website bogged down with and obscene amount of garbage. This script removes that garbge and delivers are pure wiki reading experience.
 // @author       eltrov
 // @match        https://harrypotter.fandom.com/*
@@ -9,70 +9,72 @@
 // @noframes
 // ==/UserScript==
 
-function addGlobalStyle(css) {
-    var head, style;
-    head = document.getElementsByTagName('head')[0];
-    if (!head) { return; }
-    style = document.createElement('style');
+function GM_addStyle(css) {
+  const style = document.getElementById("GM_addStyleBy8626") || (function() {
+    const style = document.createElement('style');
     style.type = 'text/css';
-    style.innerHTML = css;
-    head.appendChild(style);
+    style.id = "GM_addStyleBy8626";
+    document.head.appendChild(style);
+    return style;
+  })();
+  const sheet = style.sheet;
+  sheet.insertRule(css, (sheet.rules || sheet.cssRules || []).length);
 }
 
 // wrapper left-side image
-//addGlobalStyle('.body.background-dynamic.skin-oasis::after, body.background-dynamic.skin-oasis::before { display:none;}');
-addGlobalStyle('.body.background-dynamic.skin-oasis::after, body.background-dynamic.skin-oasis::before { background-color:#222426; background-image: none;}');
+//GM_addStyle('.body.background-dynamic.skin-oasis::after, body.background-dynamic.skin-oasis::before { display:none;}');
+GM_addStyle('.body.background-dynamic.skin-oasis::after, body.background-dynamic.skin-oasis::before { background-color:#222426; background-image: none;}');
 
 // wrapper right-side image
-addGlobalStyle('.body.background-dynamic.skin-oasis::before, body.background-dynamic.skin-oasis::after { background-color:#222426; background-image: none;}');
+GM_addStyle('.body.background-dynamic.skin-oasis::before, body.background-dynamic.skin-oasis::after { background-color:#222426; background-image: none;}');
 
 // body background color of the outside of wrapper (outer reaches)
-addGlobalStyle('body.background-dynamic.skin-oasis { background-color:#222426;}');
+GM_addStyle('body.background-dynamic.skin-oasis { background-color:#222426;}');
 
 // erase Wikia Rail - this single element was what made me create this script in the first place
-addGlobalStyle('.WikiaRail { display:none; }');
+GM_addStyle('.WikiaRail { display:none; }');
 
 // adjust main content width to fully fill the new area
-addGlobalStyle('.WikiaMainContent { width:100%; }');
+GM_addStyle('.WikiaMainContent { width:100%; }');
 
 // wrapper right-side image
-addGlobalStyle('.WikiaTopAds { display: none;}');
+GM_addStyle('.WikiaTopAds { display: none;}');
 
 // wiki page body
-addGlobalStyle('.WikiaPage { width: 80%;}');
+GM_addStyle('.WikiaPage { width: 80%;}');
 
 //  community banner
-addGlobalStyle('.wds-community-header { width: auto;}');
+GM_addStyle('.wds-community-header { width: auto;}');
 
 // removes ALL content below the body of the wiki page except comments where applicable
-addGlobalStyle('.WikiaFooter { display: none;}');
+GM_addStyle('.WikiaFooter { display: none;}');
 
 // below is no longer needed (child element of the above footer)
-addGlobalStyle('.mcf-en { display: none;}');
+GM_addStyle('.mcf-en { display: none;}');
 
 // Fandom company footer, including corporate links
-addGlobalStyle('.wds-global-footer { display: none;}');
+GM_addStyle('.wds-global-footer { display: none;}');
 
 // Removed the wrapper that runs across the very bottom of the page, linking to random other things (ads?)
-addGlobalStyle('.WikiaBarWrapper { display: none;}');
+GM_addStyle('.WikiaBarWrapper { display: none;}');
 
 // Fandom company links (to other topics/wikis) - this essentially slims down the header bar to just the search bar itself
-addGlobalStyle('.wds-global-navigation__content-bar-left { display: none;}');
+GM_addStyle('.wds-global-navigation__content-bar-left { display: none;}');
 
 // Removed the "Start a Wiki" page and fully right-justifys the search bar
-addGlobalStyle('.wds-global-navigation__start-a-wiki { display: none;}');
+GM_addStyle('.wds-global-navigation__start-a-wiki { display: none;}');
 
 // Removes the Harry Potter Community Header bar with links to the various books and other common pages. Also unfortunately removes the "random page" button. Link: https://harrypotter.fandom.com/wiki/Special:Random
-addGlobalStyle('.wds-community-header { display: none;}');
+GM_addStyle('.wds-community-header { display: none;}');
 
 //template for extra elements if more need to be added
-addGlobalStyle('.WikiaBar { display: none;}');
+GM_addStyle('.WikiaBar { display: none;}');
 
 // Removes the login icon to the right of the searhc bar
-addGlobalStyle('.wds-global-navigation__link-group, .wds-global-navigation__notifications-dropdown, .wds-global-navigation__user-menu { display: none;}');
+GM_addStyle('.wds-global-navigation__link-group, .wds-global-navigation__notifications-dropdown, .wds-global-navigation__user-menu { display: none;}');
 
 //template for extra elements if more need to be added
-//addGlobalStyle('.foo { display: none;}');
+//GM_addStyle('.foo { display: none;}');
 
 //--------------------------------------------------//
 
