@@ -1,0 +1,1 @@
+I'm just getting started with Tampermonkey and uploading some basic scripts I've created by foraging for code scraps across the internet. Ideally I'll be able to host them here on github and access them from multiple computers if necessary.
