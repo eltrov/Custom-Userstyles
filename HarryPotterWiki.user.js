@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name         Un-Fuck the Harry Potter Wiki
 // @namespace    https://eltrov.com
-// @version      0.2
+// @version      0.3
 // @description  The Harry Potter Wiki (located at https://harrypotter.fandom.com) is an abysmal website bogged down with and obscene amount of garbage. This script removes that garbge and delivers are pure wiki reading experience.
 // @author       eltrov
 // @match        https://harrypotter.fandom.com/*
 // @grant        none
 // @noframes
+// @downloadURL  https://raw.githubusercontent.com/eltrov/TampermonkeyStuff/master/HarryPotterWiki.user.js
 // ==/UserScript==
 
 function GM_addStyle(css) {
