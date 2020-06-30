@@ -5,7 +5,7 @@
 // @description  Gives Cruncyroll a dark theme using my preferred dark-mode hex color code (#222426)
 // @author       eltrov
 // @grant        none
-// @downloadURL  https://raw.githubusercontent.com/eltrov/TampermonkeyStuff/master/CruncyrollDarkTheme.js
+// @downloadURL  https://raw.githubusercontent.com/eltrov/TampermonkeyStuff/master/CruncyrollDarkTheme.user.js
 // ==/UserScript==
 
 // code via https://superuser.com/questions/181214/change-the-white-background-in-webpages-to-another-color
