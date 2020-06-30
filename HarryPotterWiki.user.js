@@ -10,6 +10,7 @@
 // @downloadURL  https://raw.githubusercontent.com/eltrov/TampermonkeyStuff/master/HarryPotterWiki.user.js
 // ==/UserScript==
 
+// function via https://stackoverflow.com/questions/23683439/gm-addstyle-equivalent-in-tampermonkey#answer-33176845
 function GM_addStyle(css) {
   const style = document.getElementById("GM_addStyleBy8626") || (function() {
     const style = document.createElement('style');
