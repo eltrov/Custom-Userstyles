@@ -1,15 +1,40 @@
 // ==UserScript==
 // @name         Fandom Cleaner
 // @namespace    https://eltrov.com
-// @version      0.21
+// @version      0.3
 // @description  Greatly reduces the amout of visual clutter on Fandom wiki sites
 // @author       eltrov
 // @match        https://*.fandom.com/*
 // @grant        none
 // @noframes
 // @downloadURL  https://raw.githubusercontent.com/eltrov/TampermonkeyStuff/master/FandomClaner.user.js
-// @run-at       document-body 
+// @require      https://openuserjs.org/src/libs/sizzle/GM_config.js
 // ==/UserScript==
+
+GM_config.init(
+{
+  'id': 'MyConfig',
+  'fields':
+  {
+	'bgColor':
+	{
+		'label': 'Background Color Hex Code',
+		'type': 'text',
+		'default': '#222426'
+	},
+	'CustomCursor':
+	{
+        'labebl': 'Allow custom cursors?',
+        'type': 'checkbox',
+        'default': false
+	}
+  }
+});
+
+var $bgColor = GM_config.get('bgColor');
+var CustomCursor = GM_config.get('CustomCursor');
+
+//alert($bgColor);
 
 function GM_addStyle(css) {
   const style = document.getElementById("GM_addStyleBy8626") || (function() {
@@ -29,19 +54,15 @@ var bodyClass = document.body.className;
 document.body.className = document.body.className.replace(bodyClass,"");
 // via - https://stackoverflow.com/questions/4397289/javascript-fastest-way-to-remove-a-class-from-body
 
-GM_addStyle('body { background: #222426; }');
 
-/* test
-// wrapper left-side image
-//GM_addStyle('.body.background-dynamic.skin-oasis::after, body.background-dynamic.skin-oasis::before { display:none;}');
-GM_addStyle('.body.background-dynamic.skin-oasis::after, body.background-dynamic.skin-oasis::before { background-color:#222426; background-image: none;}');
+GM_addStyle('body { background-color: #222426; }');
 
-// wrapper right-side image
-GM_addStyle('.body.background-dynamic.skin-oasis::before, body.background-dynamic.skin-oasis::after { background-color:#222426; background-image: none;}');
-
-// body background color of the outside of wrapper (outer reaches)
-GM_addStyle('body.background-dynamic.skin-oasis { background-color:#222426;}');
-*/
+// Custom Cursor on/off based on config - default is off
+if(!CustomCursor){
+GM_addStyle('body { cursor: auto; }');
+GM_addStyle('a:hover { cursor: pointer; }');
+}
+else {}
 
 // erase Wikia Rail - this single element was what made me create this script in the first place
 GM_addStyle('.WikiaRail { display:none; }');
@@ -86,36 +107,7 @@ GM_addStyle('.WikiaBar { display: none;}');
 GM_addStyle('.wds-global-navigation__link-group, .wds-global-navigation__notifications-dropdown, .wds-global-navigation__user-menu { display: none;}');
 
 //template for extra elements if more need to be added
-//GM_addStyle('.foo { display: none;}');
-
-//template for extra elements if more need to be added
 GM_addStyle('.featured-video__wrapper { display: none;}');
 
-
-//--------------------------------------------------//
-
-/*
-The above code is based on a number of adblock settings I made in order to cut down the amount of visual noise and garbage present on the fandom wikia pages.
-This script was created soley with the Harry Potter wiki in mind but could easily be modified to suit any other specific wiki or, perhaps, with some effort, be made into a universal wiki cleaner
-
-AdBlock Settings
-! 10/15/2019 https://harrypotter.fandom.com
-harrypotter.fandom.com##.body.background-dynamic.skin-oasis::after, body.background-dynamic.skin-oasis::before
-harrypotter.fandom.com##.body.background-dynamic.skin-oasis::after, body.background-dynamic.skin-oasis::after
-harrypotter.fandom.com##.WikiaRail
-harrypotter.fandom.com##.mcf-en
-harrypotter.fandom.com##.wds-global-footer
-harrypotter.fandom.com##.WikiaBarWrapper
-harrypotter.fandom.com##.wds-community-header
-harrypotter.fandom.com##.wds-global-navigation__content-bar-left
-harrypotter.fandom.com##..wds-dropdown
-harrypotter.fandom.com##.wds-button wds-is-secondary wds-global-navigation__link-button
-harrypotter.fandom.com##.wds-global-navigation__start-a-wiki
-harrypotter.fandom.com##@media only screen and (min-width: 1084px)__.WikiaMainContent
-harrypotter.fandom.com##.WikiaMainContent:style(width:100%;)
-harrypotter.fandom.com##@media only screen and (min-width: 1084px) {.WikiaMainContent:style(width:99%;)}
-harrypotter.fandom.com##WikiaArticle:style(width:100%)
-harrypotter.fandom.com##WikiaMainContent:style(width:100%)
-harrypotter.fandom.com##.media only screen and (min-width: 1084px)__.WikiaMainContent:style(width:auto;)
-
-*/
+//template for extra elements if more need to be added
+//GM_addStyle('.foo { display: none;}');
