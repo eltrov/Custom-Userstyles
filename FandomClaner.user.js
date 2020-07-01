@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Fandom Cleaner
-// @namespace    https://github.com/eltrov/TampermonkeyStuff
-// @version      0.1
+// @namespace    https://eltrov.com
+// @version      0.2
 // @description  Greatly reduces the amout of visual clutter on Fandom wiki sites
 // @author       eltrov
 // @match        https://*.fandom.com/*
@@ -22,6 +22,15 @@ function GM_addStyle(css) {
   sheet.insertRule(css, (sheet.rules || sheet.cssRules || []).length);
 }
 
+// wipes out the random fandom-specific class in the body tag. this removed any wallpapers and allows you to have a simple color background
+var bodyClass = document.body.className;
+//alert(bodyClass);
+document.body.className = document.body.className.replace(bodyClass,"");
+// via - https://stackoverflow.com/questions/4397289/javascript-fastest-way-to-remove-a-class-from-body
+
+GM_addStyle('body { background: #222426; }');
+
+/* test
 // wrapper left-side image
 //GM_addStyle('.body.background-dynamic.skin-oasis::after, body.background-dynamic.skin-oasis::before { display:none;}');
 GM_addStyle('.body.background-dynamic.skin-oasis::after, body.background-dynamic.skin-oasis::before { background-color:#222426; background-image: none;}');
@@ -31,6 +40,7 @@ GM_addStyle('.body.background-dynamic.skin-oasis::before, body.background-dynami
 
 // body background color of the outside of wrapper (outer reaches)
 GM_addStyle('body.background-dynamic.skin-oasis { background-color:#222426;}');
+*/
 
 // erase Wikia Rail - this single element was what made me create this script in the first place
 GM_addStyle('.WikiaRail { display:none; }');
@@ -65,7 +75,7 @@ GM_addStyle('.wds-global-navigation__content-bar-left { display: none;}');
 // Removed the "Start a Wiki" page and fully right-justifys the search bar
 GM_addStyle('.wds-global-navigation__start-a-wiki { display: none;}');
 
-// Removes the Community Header bar with links to the various books and other common pages. Also unfortunately removes the "random page" button. Link: https://*.fandom.com/wiki/Special:Random
+// Removes the Harry Potter Community Header bar with links to the various books and other common pages. Also unfortunately removes the "random page" button. Link: https://harrypotter.fandom.com/wiki/Special:Random
 GM_addStyle('.wds-community-header { display: none;}');
 
 //template for extra elements if more need to be added
@@ -73,6 +83,9 @@ GM_addStyle('.WikiaBar { display: none;}');
 
 // Removes the login icon to the right of the searhc bar
 GM_addStyle('.wds-global-navigation__link-group, .wds-global-navigation__notifications-dropdown, .wds-global-navigation__user-menu { display: none;}');
+
+//template for extra elements if more need to be added
+GM_addStyle('.featured-video__wrapper { display: none;}');
 
 //template for extra elements if more need to be added
 //GM_addStyle('.foo { display: none;}');
