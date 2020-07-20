@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Fandom Cleaner
-// @namespace    https://eltrov.com
-// @version      0.3
+// @namespace    eltrovFandomCleaner
+// @version      0.4
 // @description  Greatly reduces the amout of visual clutter on Fandom wiki sites
 // @author       eltrov
 // @match        https://*.fandom.com/*
@@ -9,25 +9,22 @@
 // @noframes
 // @downloadURL  https://raw.githubusercontent.com/eltrov/TampermonkeyStuff/master/FandomClaner.user.js
 // @require      https://openuserjs.org/src/libs/sizzle/GM_config.js
+// @run-at       document-body
 // ==/UserScript==
 
-GM_config.init(
-{
+GM_config.init({
   'id': 'MyConfig',
-  'fields':
-  {
-	'bgColor':
-	{
-		'label': 'Background Color Hex Code',
-		'type': 'text',
-		'default': '#222426'
-	},
-	'CustomCursor':
-	{
-        'labebl': 'Allow custom cursors?',
-        'type': 'checkbox',
-        'default': false
-	}
+  'fields': {
+    'bgColor': {
+      'label': 'Background Color Hex Code',
+      'type': 'text',
+      'default': '#222426'
+    },
+    'CustomCursor': {
+      'labebl': 'Allow custom cursors?',
+      'type': 'checkbox',
+      'default': false
+    }
   }
 });
 
@@ -37,7 +34,7 @@ var CustomCursor = GM_config.get('CustomCursor');
 //alert($bgColor);
 
 function GM_addStyle(css) {
-  const style = document.getElementById("GM_addStyleBy8626") || (function() {
+  const style = document.getElementById("GM_addStyleBy8626") || (function () {
     const style = document.createElement('style');
     style.type = 'text/css';
     style.id = "GM_addStyleBy8626";
@@ -51,18 +48,17 @@ function GM_addStyle(css) {
 // wipes out the random fandom-specific class in the body tag. this removed any wallpapers and allows you to have a simple color background
 var bodyClass = document.body.className;
 //alert(bodyClass);
-document.body.className = document.body.className.replace(bodyClass,"");
+document.body.className = document.body.className.replace(bodyClass, "");
 // via - https://stackoverflow.com/questions/4397289/javascript-fastest-way-to-remove-a-class-from-body
 
 
 GM_addStyle('body { background-color: #222426; }');
 
 // Custom Cursor on/off based on config - default is off
-if(!CustomCursor){
-GM_addStyle('body { cursor: auto; }');
-GM_addStyle('a:hover { cursor: pointer; }');
-}
-else {}
+if (!CustomCursor) {
+  GM_addStyle('body { cursor: auto; }');
+  GM_addStyle('a:hover { cursor: pointer; }');
+} else {}
 
 // erase Wikia Rail - this single element was what made me create this script in the first place
 GM_addStyle('.WikiaRail { display:none; }');

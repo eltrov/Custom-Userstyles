@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Crunchyroll Background Color Changer
-// @namespace    http://tampermonkey.net/
-// @version      0.11
-// @description  Gives Cruncyroll a dark theme using my preferred dark-mode hex color code (#222426)
+// @namespace    eltrovCruncyrollDarkTheme
+// @version      0.12
+// @description  [HIGHLY EXPERIMENTAL] Gives Cruncyroll a dark theme using my preferred dark-mode hex color code (#222426)
 // @author       eltrov
 // @grant        none
 // @include      https://www.crunchyroll.com/*
