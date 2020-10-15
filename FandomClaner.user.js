@@ -1,37 +1,15 @@
 // ==UserScript==
 // @name         Fandom Cleaner
 // @namespace    eltrovFandomCleaner
-// @version      0.4
+// @version      0.5
 // @description  Greatly reduces the amout of visual clutter on Fandom wiki sites
 // @author       eltrov
 // @match        https://*.fandom.com/*
 // @grant        none
 // @noframes
 // @downloadURL  https://raw.githubusercontent.com/eltrov/TampermonkeyStuff/master/FandomClaner.user.js
-// @require      https://openuserjs.org/src/libs/sizzle/GM_config.js
 // @run-at       document-body
 // ==/UserScript==
-
-GM_config.init({
-  'id': 'MyConfig',
-  'fields': {
-    'bgColor': {
-      'label': 'Background Color Hex Code',
-      'type': 'text',
-      'default': '#222426'
-    },
-    'CustomCursor': {
-      'labebl': 'Allow custom cursors?',
-      'type': 'checkbox',
-      'default': false
-    }
-  }
-});
-
-var $bgColor = GM_config.get('bgColor');
-var CustomCursor = GM_config.get('CustomCursor');
-
-//alert($bgColor);
 
 function GM_addStyle(css) {
   const style = document.getElementById("GM_addStyleBy8626") || (function () {
@@ -54,12 +32,6 @@ document.body.className = document.body.className.replace(bodyClass, "");
 
 GM_addStyle('body { background-color: #222426; }');
 
-// Custom Cursor on/off based on config - default is off
-if (!CustomCursor) {
-  GM_addStyle('body { cursor: auto; }');
-  GM_addStyle('a:hover { cursor: pointer; }');
-} else {}
-
 // erase Wikia Rail - this single element was what made me create this script in the first place
 GM_addStyle('.WikiaRail { display:none; }');
 
@@ -70,7 +42,7 @@ GM_addStyle('.WikiaMainContent { width:100%; }');
 GM_addStyle('.WikiaTopAds { display: none;}');
 
 // wiki page body
-GM_addStyle('.WikiaPage { width: 80%;}');
+GM_addStyle('.WikiaPage { width: 100%;}');
 
 //  community banner
 GM_addStyle('.wds-community-header { width: auto;}');
@@ -107,3 +79,11 @@ GM_addStyle('.featured-video__wrapper { display: none;}');
 
 //template for extra elements if more need to be added
 //GM_addStyle('.foo { display: none;}');
+
+GM_addStyle('.unified-search__layout__right-rail { display: none;}');
+
+GM_addStyle('#WikiaRailWrapper { display: none;}');
+GM_addStyle('.WikiaRail { display: none;}');
+
+// site wrapper
+GM_addStyle('.WikiaSiteWrapper { width: auto;}');
