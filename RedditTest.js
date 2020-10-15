@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name         Reddit Test
 // @namespace    eltrovReddit
-// @version      0.2
+// @version      0.3
 // @description  Removed promoted posts on Reddit
 // @author       eltrov
 // @match        https://www.reddit.com/*
 // @grant        none
 // @run-at       document-body
+// @downloadURL  https://raw.githubusercontent.com/eltrov/TampermonkeyStuff/master/RedditTest.js
 // ==/UserScript==
 
 function GM_addStyle(css) {
