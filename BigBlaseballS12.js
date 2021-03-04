@@ -9,8 +9,8 @@
 // @include       http://*.blaseball.com/*
 // @include       https://*.blaseball.com/*
 // @run-at        document-body
-// @updateURL     https://github.com/eltrov/TampermonkeyStuff/raw/master/BigBlaseballS12.js
-// @version       0.111
+// @updateURL     https://raw.githubusercontent.com/eltrov/TampermonkeyStuff/master/BigBlaseballS12.js
+// @version       0.112
 // ==/UserScript==
 // based on the original BIG Blaseball userscript by Michael Holmes (https://userstyles.org/styles/187551)
 // this is a revision for Season 12 that altered the way the game pages were constructed and rendered the original script useless
