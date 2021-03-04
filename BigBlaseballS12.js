@@ -10,7 +10,7 @@
 // @include       https://*.blaseball.com/*
 // @run-at        document-body
 // @updateURL     https://github.com/eltrov/TampermonkeyStuff/raw/master/BigBlaseballS12.js
-// @version       0.1
+// @version       0.11
 // ==/UserScript==
 // based on the original BIG Blaseball userscript by Michael Holmes (https://userstyles.org/styles/187551)
 // this is a revision for Season 12 that altered the way the game pages were constructed and redered the original script useless
@@ -23,12 +23,12 @@
         "    display: inline-block;",
         "}",
         ".Main {",
-        "    padding: 0 calc(35% - 512px);",
+        "    padding: 0;",
         "}",
         "li.GameWidget-Full-Live, .GameWidget-Full-Upcoming {",
         "    display: inline-block;",
         "    flex-direction: column;",
-        "    width: 400px;",
+        "    width: 360px;",
         "    margin-bottom: 0px;",
         "    border: 1px solid #000;",
         "}",
@@ -42,19 +42,22 @@
         "    border-radius: 0;",
         "}",
         ".Widget-Log-PlayCount {",
-        "right: 0;",
-        "bottom: 0;",
-        "background: #979797;",
-        "color: #fff;",
-        "font-weight: 700;",
-        "border-radius: 5px 0 0 0;",
-        "padding: 0 5px;",
+        "    right: 0;",
+        "    bottom: 0;",
+        "    background: #979797;",
+        "    color: #fff;",
+        "    font-weight: 700;",
+        "    border-radius: 5px 0 0 0;",
+        "    padding: 0 5px;",
         "}",
         ".Widget-Display-Visual {",
         "    border-radius: 0;",
         "}",
         ".Widget-Status {",
-        "border-radius: 0 5px 5px 0;",
+        "    border-radius: 0 5px 5px 0;",
+        "}",
+        ".GameWidget IsComplete GameWidget-Full-Live {",
+        "    min-height: 400px;",
         "}"
     ].join("\n");
     if (typeof GM_addStyle != "undefined") {
