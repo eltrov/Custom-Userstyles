@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name          BIG Blaseball - Season 12 Update
 // @namespace     https://github.com/eltrov/TampermonkeyStuff/
-// @homepage      https://github.com/eltrov/TampermonkeyStuff/raw/master/BigBlaseballS12.js
+// @homepage      https://raw.githubusercontent.com/eltrov/TampermonkeyStuff/master/BigBlaseballS12.js
 // @description	  Shows Blaseball in a BIG way (full screen, up to 5x2 where size permits)
 // @author        Chris Roy
 // @include       http://blaseball.com/*
@@ -10,20 +10,23 @@
 // @include       https://*.blaseball.com/*
 // @run-at        document-body
 // @updateURL     https://raw.githubusercontent.com/eltrov/TampermonkeyStuff/master/BigBlaseballS12.js
-// @version       0.112
+// @version       0.12
 // ==/UserScript==
 // based on the original BIG Blaseball userscript by Michael Holmes (https://userstyles.org/styles/187551)
 // this is a revision for Season 12 that altered the way the game pages were constructed and rendered the original script useless
 (function () {
     var css = [
+        "@media screen and (max-width: 3440px) {",
+        ".Main { padding: 0 calc(35% - 512px); }",
+        "}",
+        "@media screen and (max-width: 1920px) {",
+        ".Main { padding: 0; }",
+        "}",
         "ul {",
         "    text-align: center;",
         "}",
         "li {",
         "    display: inline-block;",
-        "}",
-        ".Main {",
-        "    padding: 0;",
         "}",
         "li.GameWidget-Full-Live, .GameWidget-Full-Upcoming {",
         "    display: inline-block;",
