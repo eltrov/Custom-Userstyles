@@ -1,0 +1,50 @@
+@-moz-document domain("fandom.com") {
+#WikiaRailWrapper,
+.mcf-en,											/* removes a massive amount of junk bottom of the page */
+.wds-global-footer,									/* Fandom company footer, including corporate links */
+.WikiaBarWrapper,									/* Removed the wrapper that runs across the very bottom of the page, linking to random other things (ads?) */
+.wds-global-navigation__content-bar-left,			/* Fandom company links (to other topics/wikis) - this essentially slims down the header bar to just the search bar itself */
+.wds-global-navigation__start-a-wiki,				/* Removed the "Start a Wiki" page and fully right-justifys the search bar */
+.wds-global-navigation__user-menu,					/* removes sign-in button */
+.wds-community-header,								/* Removes the community wiki banner from the top of the page */
+#mw-notification-area								/* Removes site notiifcation pop-ups */
+{
+display: none;
+}
+
+
+/* removes site wrapper, allows page content to fill 100% of the width */
+.WikiaSiteWrapper {
+	width: auto;
+}
+
+
+/* Removes a tiny bit of background image poking out from behind the main body div*/
+.WikiaSiteWrapper .WikiaPage {
+	padding: 0;
+}
+
+.portable-infobox {
+	width: auto;
+	border: 1px solid white;
+	border-radius: 15px;
+}
+
+.pi-image {
+	padding-top: 15px;
+	border-radius: 15px 15px 0 0;
+
+}
+
+.portable-infobox.pi-navigation:last-child, .portable-infobox .pi-navigation:last-child {
+	border-radius: 0 0 15px 15px;
+}
+
+a {
+	color: #c1a866;
+}
+
+a:hover {
+	color: #847c66;	
+}
+}

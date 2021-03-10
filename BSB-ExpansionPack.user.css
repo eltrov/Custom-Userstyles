@@ -1,0 +1,71 @@
+@-moz-document domain("blaseball.com") {
+/*
+	6x2 display fix
+*/
+.GameWidget {
+	flex: 0 1 calc(100% / 6);
+}
+
+
+/*
+	Play count styling
+*/
+.Widget-Log-PlayCount {
+	right: 0;
+	bottom: 0;
+	background: #979797;
+	color: #fff;
+	font-weight: 700;
+	border-radius: 5px 0 0 0;
+	padding: 0 5px;
+}
+
+/* https://www.w3schools.com/howto/howto_css_hide_scrollbars.asp */
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+	-ms-overflow-style: none;
+	/* IE and Edge */
+	scrollbar-width: none;
+	/* Firefox */
+}
+
+/*
+	Max width of main UL element
+	Smaller % results in more margin
+*/
+@media screen and (width: 3440px) {
+	.League-Countdown + ul,
+	.League-Countdown + ul > ul {
+		max-width: 60%;
+		margin: auto;
+	}
+}
+
+@media screen and (width: 1718px) {
+	.League-Countdown + ul,
+	.League-Countdown + ul > ul {
+		max-width: 100%;
+	}
+
+	/* when using 3440p monitor and window is half-screen */
+	/* This is a tiny bit too narrow to show all six games and on completed games the circles will be slightly cut off but otherwise it all fits*/
+	.GameWidget {
+		min-width: calc(100% / 6);
+	}
+}
+
+.theme-dark .Widget-Display-Visual-Max {
+	padding-top: 26px;
+}
+
+.Widget-Display-Visual-Max:after {
+	top: 0;
+}
+
+.Widget-Log-Line {
+	/* 
+	Current game activity is displayed here, as well as the final score at the end of the game 
+	so it's not possible to style them seperately.
+	*/
+}
+}

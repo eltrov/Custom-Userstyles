@@ -1,0 +1,41 @@
+@-moz-document domain("fandom.com") {
+.WikiaPage,
+.WikiaPageContentWrapper,
+#spoiler,
+.notice,
+.portable-infobox .pi-data:nth-child(2n+1),
+.pi-theme-creature .pi-header,
+#articleCategories
+{
+	background-color: #222426 !important;
+}
+
+*{
+	color: #dddbd9;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h7 {
+	color: #dddbd9 !important;
+}
+
+.portable-infobox .pi-data:nth-child(2n) 
+{
+	background: #424446;
+}
+
+.pi-theme-creature .pi-image, .pi-theme-creature .pi-title, .pi-theme-creature .pi-navigation
+{
+	background: #424446;
+}
+
+.portable-infobox {
+	width: auto;
+	border: 1px solid #dddbd9;
+}
+}
