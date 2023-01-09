@@ -1,0 +1,107 @@
+.game-header__score {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.game-widget__box {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.game-header__emoji.away,
+.game-header__emoji.home,
+.League-DivisionCard-Logo {
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+}
+
+.game-header__emoji.away img,
+.game-header__emoji.home img,
+.League-DivisionCard-Logo img {
+    height: 48px;
+    width: 48px;
+}
+.game-header__emoji,
+.League-DivisionCard-Logo {}
+
+.game-header__matchup__row {
+    padding: 5px 0;
+}
+
+.League-DivisionCard-Logo {}
+
+.game-widget__log {
+    font-size: 16px;
+    line-height: 16px;
+}
+
+.playtab__gamelist {
+    max-width: 100%;
+    --auto-grid-min-size: 19%;
+}
+
+.bet-widget {
+    width: 38%;
+    margin: auto;
+}
+
+.bet-widget__wager {
+    margin-top: 0;
+    line-height: 8px;
+    text-transform: none;
+}
+
+.League-DivisionCard {
+    gap: 0;
+}
+
+.League-DivisionCard a:nth-child(1n) {
+    background: #222;
+}
+
+
+.League-DivisionCard a:nth-child(2n) {
+    background: #111;
+}
+
+.shared__glass-container {
+    background: #000;
+}
+
+.Standings-Team.Standings-Team-Name-Container.Standings-SingleList-Team {
+    /*border: 1px solid white;*/
+    padding: 4px 0;
+}
+
+/* Division rank text fix for large team emoji */
+.League-DivisionCard-Rank {
+    margin: auto;
+}
+
+/* Re-aligning the Team column header to line up with team  */
+.League-DivisionCard-Headings .RankTeam {
+    gap: 5.3rem;
+}
+
+/* https://www.w3schools.com/howto/howto_css_hide_scrollbars.asp */
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+/* PLAY - Font tweaks */
+.playtab__weather__label {
+    font-size: 14px;
+}
+
+.game-header__team {
+    font-size: 18px;
+}
+
+.game-widget__player,
+.game-widget__player-name,
+.game-widget__position {
+    font-size: 14px;
+}
