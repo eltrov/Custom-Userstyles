@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Blaseball 2023 Restyle
 @namespace      https://github.com/eltrov/Custom-Userstyles
-@version        1.2.0
+@version        1.2.1
 @description    A new userstyle Blaseball's 2023 relaunch
 @author         eltrov
 ==/UserStyle== */
@@ -181,7 +181,7 @@
 	/* This setting is specifically tuned to my personal use with a 3440x1440 monitor */
 	@media(min-width: 1921px) {
 		.bet-widget__list {
-			width: 28%;
+			width: 34%;
 		}
 	}
 
