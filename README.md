@@ -1,4 +1,4 @@
-This repo logs custom stylesheets I've made for myself over time. They're intended to be used with the browser extension Stylus (avaiable for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/styl-us/) or [Chrome](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne)
+This repo logs custom stylesheets I've made for myself over time. They're intended to be used with the browser extension Stylus (avaiable for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/styl-us/) or [Chrome](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne))
 
 ## Styles
 
