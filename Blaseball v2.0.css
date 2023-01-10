@@ -72,6 +72,24 @@
     font-size: 14px;
 }
 
+.game-widget__count {
+    font-family: 'Open Sans';
+ padding: 0;   
+}
+
+/* Need a mono-spaced font here so the circle indicators for Balls/Strikes/Outs all line up, because they're not in containers */
+/* https://fonts.google.com/specimen/JetBrains+Mono */
+.game-widget__count-label {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 22px;
+}
+
+/* Play Count (balls/strikes/outs/ */
+.game-widget__circle {
+    height: 16px;
+    width: 16px;
+}
+
 /*=============================================================================================*/
 /* LEAGUE */
 
