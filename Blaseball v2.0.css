@@ -1,11 +1,21 @@
-.game-header__score {
-    font-family: 'Open Sans', sans-serif;
+/*=============================================================================================*/
+/* General Rules */
+
+/* This is generally bad practice and it just a placeholer for now. I'm not opposed to a new font but I will admit I'm mostly trying to recapture the look and feel of the original layout */
+* {
+   font-family: 'Lora', sans-serif !important;
 }
 
-.game-widget__box {
-    font-family: 'Open Sans', sans-serif;
+/* https://www.w3schools.com/howto/howto_css_hide_scrollbars.asp */
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
+/* Adjusts the emoji image container size */
 .game-header__emoji.away,
 .game-header__emoji.home,
 .League-DivisionCard-Logo {
@@ -14,41 +24,56 @@
     width: 60px;
 }
 
+/* This bit actually modified the size of the images for the emojis */
 .game-header__emoji.away img,
 .game-header__emoji.home img,
 .League-DivisionCard-Logo img {
     height: 48px;
     width: 48px;
 }
-.game-header__emoji,
-.League-DivisionCard-Logo {}
 
-.game-header__matchup__row {
-    padding: 5px 0;
+/* Removes the glass effect (faded gradient) in the background of each main container */
+.shared__glass-container {
+    background: #000;
+    /* original CSS
+    background: linear-gradient(rgba(0,0,0,.1),hsla(0,0%,100%,.025)),radial-gradient(rgba(206,211,229,.1),rgba(20,22,26,.1));
+    */
 }
 
-.League-DivisionCard-Logo {}
+/*=============================================================================================*/
+/* PLAY */
 
-.game-widget__log {
-    font-size: 16px;
-    line-height: 16px;
-}
 
 .playtab__gamelist {
     max-width: 100%;
     --auto-grid-min-size: 19%;
 }
 
-.bet-widget {
-    width: 38%;
-    margin: auto;
+.game-header__matchup__row {
+    padding: 5px 0;
 }
 
-.bet-widget__wager {
-    margin-top: 0;
-    line-height: 8px;
-    text-transform: none;
+.game-widget__log {
+    font-size: 16px;
+    line-height: 16px;
 }
+
+.playtab__weather__label {
+    font-size: 14px;
+}
+
+.game-header__team {
+    font-size: 18px;
+}
+
+.game-widget__player,
+.game-widget__player-name,
+.game-widget__position {
+    font-size: 14px;
+}
+
+/*=============================================================================================*/
+/* LEAGUE */
 
 .League-DivisionCard {
     gap: 0;
@@ -61,10 +86,6 @@
 
 .League-DivisionCard a:nth-child(2n) {
     background: #111;
-}
-
-.shared__glass-container {
-    background: #000;
 }
 
 .Standings-Team.Standings-Team-Name-Container.Standings-SingleList-Team {
@@ -82,26 +103,27 @@
     gap: 5.3rem;
 }
 
-/* https://www.w3schools.com/howto/howto_css_hide_scrollbars.asp */
-/* Hide scrollbar for IE, Edge and Firefox */
-* {
-    -ms-overflow-style: none;
-    /* IE and Edge */
-    scrollbar-width: none;
-    /* Firefox */
+/*=============================================================================================*/
+/* BETTING */
+
+.bet-widget {
+    width: 38%;
+    margin: auto;
 }
 
-/* PLAY - Font tweaks */
-.playtab__weather__label {
-    font-size: 14px;
+.bet-widget__wager {
+    margin-top: 0;
+    line-height: 8px;
+    text-transform: none;
 }
 
-.game-header__team {
-    font-size: 18px;
+.League-DivisionCard-TeamName {
+    font-size: 22px;
 }
 
-.game-widget__player,
-.game-widget__player-name,
-.game-widget__position {
-    font-size: 14px;
-}
+/*=============================================================================================*/
+/* VOTING */
+
+
+
+/*=============================================================================================*/
