@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Blaseball 2023 Restyle
 @namespace      https://github.com/eltrov/Custom-Userstyles
-@version        1.2.2
+@version        1.2.5
 @description    A new userstyle Blaseball's 2023 relaunch
 @author         eltrov
 ==/UserStyle== */
@@ -114,6 +114,11 @@
 		width: 16px;
 		border: 2px solid #fff;
 	}
+	
+	/* border between Pitcher and Batter lines */
+	.game-widget__atbat__row:nth-child(1) {
+		border-bottom: 1px solid #3d414c;
+	}
 
 	/*=============================================================================================*/
 	/* LEAGUE */
@@ -162,12 +167,19 @@
 	}
 
 	.League-DivisionCard-Headings .RankTeam {
-		gap: 85px;
+		gap: 100px;
 	}
 
 	.League-DivisionCard-Headings .WinLoss {
 		gap: 28px;
 		padding-right: 2px;
+	}
+	
+	/* Making sure everything is lined up without using monospaced font */
+	.League-DivisionCard-Rank {
+		/*font-family: 'JetBrains Mono', monospace !important;*/
+		width: 40px;
+		padding: 0 12px;
 	}
 
 	./*=============================================================================================*/
