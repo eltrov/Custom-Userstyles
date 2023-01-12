@@ -1,13 +1,18 @@
 /* ==UserStyle==
 @name           Blaseball 2023 Restyle
 @namespace      https://github.com/eltrov/Custom-Userstyles
-@version        1.2.7
+@version        1.3.0
 @description    A new userstyle Blaseball's 2023 relaunch
 @author         eltrov
 ==/UserStyle== */
 @-moz-document domain("blaseball.com") {
 	/*=============================================================================================*/
 	/* General Rules */
+	:root {
+		--bg-emoji: 64px;
+		--sm-emoji: 48px;
+	}
+
 	/* This is generally bad practice and it just a placeholer for now. I'm not opposed to a new font but I will admit I'm mostly trying to recapture the look and feel of the original layout */
 	* {
 		font-family: 'Lora', sans-serif !important;
@@ -25,18 +30,20 @@
 	/* Adjusts the emoji image container size */
 	.game-header__emoji.away,
 	.game-header__emoji.home,
-	.League-DivisionCard-Logo {
+	.League-DivisionCard-Logo,
+	.bet-widget__emoji {
 		border-radius: 50%;
-		height: 60px;
-		width: 60px;
+		height: var(--bg-emoji);
+		width: var(--bg-emoji);
 	}
 
 	/* This bit actually modified the size of the images for the emojis */
 	.game-header__emoji.away img,
 	.game-header__emoji.home img,
-	.League-DivisionCard-Logo img {
-		height: 48px;
-		width: 48px;
+	.League-DivisionCard-Logo img,
+	.bet-widget__emoji img {
+		height: var(--sm-emoji);
+		width: var(--sm-emoji);
 	}
 
 	/* Removes the glass effect (faded gradient) in the background of each main container */
@@ -117,7 +124,7 @@
 		width: 16px;
 		border: 2px solid #fff;
 	}
-	
+
 	/* border between Pitcher and Batter lines */
 	.game-widget__atbat__row:nth-child(1) {
 		border-bottom: 1px solid #3d414c;
@@ -177,7 +184,7 @@
 		gap: 28px;
 		padding-right: 2px;
 	}
-	
+
 	/* Making sure everything is lined up without using monospaced font */
 	.League-DivisionCard-Rank {
 		/*font-family: 'JetBrains Mono', monospace !important;*/
@@ -214,20 +221,9 @@
 	.bet-widget__info {
 		font-size: 22px;
 	}
-	
+
 	.bet-widget__record {
 		font-size: 18px;
-	}
-	
-	.bet-widget__emoji {
-		border-radius: 50%;
-		width: 60px;
-		height: 60px;
-	}
-	
-	.bet-widget__emoji img {
-		width: 48px;
-		height: 48px;
 	}
 	/*=============================================================================================*/
 	/* VOTING */
