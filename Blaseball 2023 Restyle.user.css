@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Blaseball 2023 Restyle
 @namespace      https://github.com/eltrov/Custom-Userstyles
-@version        1.3.0
+@version        1.4.0
 @description    A new userstyle Blaseball's 2023 relaunch
 @author         eltrov
 ==/UserStyle== */
@@ -9,7 +9,10 @@
 	/*=============================================================================================*/
 	/* General Rules */
 	:root {
+		/* Ideal size for emoji containers */
 		--bg-emoji: 64px;
+		
+		/* Idea size for emoji imgae */
 		--sm-emoji: 48px;
 	}
 
@@ -37,7 +40,7 @@
 		width: var(--bg-emoji);
 	}
 
-	/* This bit actually modified the size of the images for the emojis */
+	/* This bit actually modifies the size of the images of the emojis */
 	.game-header__emoji.away img,
 	.game-header__emoji.home img,
 	.League-DivisionCard-Logo img,
@@ -46,7 +49,7 @@
 		width: var(--sm-emoji);
 	}
 
-	/* Removes the glass effect (faded gradient) in the background of each main container */
+	/* Removes the glass effect (a partially transparent gradient) in the background of each main container */
 	.shared__glass-container {
 		background: #000;
 		/* original CSS
@@ -57,6 +60,8 @@
 
 	/*=============================================================================================*/
 	/* PLAY */
+	
+	/* changes to the main PLAY area */
 	.playtab {
 		display: inline;
 		max-width: 80%;
@@ -78,32 +83,45 @@
 		}
 	}
 
+	/* adding a little padding around the game header area */
 	.game-header__matchup__row {
 		padding: 5px 0;
 	}
 
+	/* */
 	.game-widget {
 		text-align: center;
 		margin: auto;
 	}
 
+	/* upping the text size in the game output log (8px > 22px) */
 	.game-widget__log {
-		font-size: 16px;
-		line-height: 16px;
+		font-size: 22px;
+		line-height: 22px;
 	}
 
-	.playtab__weather__label {
+	/* Weather label and weather type (i.e. Horizon). Weather type has to be selected using first-child because it's currently sitting in an unclassed paragraph tag, but this works fine */
+	.playtab__weather__label,
+	.playtab__weather:first-child{
+		font-size: 16px;
+		display: inline;
+	}
+
+	.game-header__odds {
 		font-size: 14px;
 	}
-
+	/* Text size for the Team's name in each game */
 	.game-header__team {
-		font-size: 18px;
+		font-size: 20px;
 	}
 
 	.game-widget__player,
 	.game-widget__player-name,
-	.game-widget__position {
-		font-size: 14px;
+	.game-widget__position,
+	.game-widget__inning {
+		font-size: 18px;
+		padding: 4px 0;
+		text-transform: none;
 	}
 
 	.game-widget__count {
@@ -125,11 +143,23 @@
 		border: 2px solid #fff;
 	}
 
+	.game-widget__atbat {
+		width: auto;
+	}
+	
+	.game-widget__atbat__row {
+		display: inline-flex;
+		gap: 1em;
+	}
 	/* border between Pitcher and Batter lines */
 	.game-widget__atbat__row:nth-child(1) {
 		border-bottom: 1px solid #3d414c;
 	}
 
+	.game-widget__arrow {
+		height: 32px;
+		width: 32px;
+	}
 	/*=============================================================================================*/
 	/* LEAGUE */
 	/* Force overwrite for the League Name text (for some reason) */
