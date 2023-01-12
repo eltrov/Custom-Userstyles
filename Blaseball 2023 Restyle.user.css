@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Blaseball 2023 Restyle
 @namespace      https://github.com/eltrov/Custom-Userstyles
-@version        1.4.0
+@version        1.4.1
 @description    A new userstyle Blaseball's 2023 relaunch
 @author         eltrov
 ==/UserStyle== */
@@ -159,6 +159,12 @@
 	.game-widget__arrow {
 		height: 32px;
 		width: 32px;
+	}
+	
+	/* bases indicator */
+	.game-widget__field {
+		min-height: 100px;
+		min-width: 140px;
 	}
 	/*=============================================================================================*/
 	/* LEAGUE */
