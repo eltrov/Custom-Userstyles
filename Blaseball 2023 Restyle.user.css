@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Blaseball 2023 Restyle
 @namespace      https://github.com/eltrov/Custom-Userstyles
-@version        1.4.1
+@version        1.4.2
 @description    A new userstyle Blaseball's 2023 relaunch
 @author         eltrov
 ==/UserStyle== */
@@ -11,7 +11,7 @@
 	:root {
 		/* Ideal size for emoji containers */
 		--bg-emoji: 64px;
-		
+
 		/* Idea size for emoji imgae */
 		--sm-emoji: 48px;
 	}
@@ -60,7 +60,6 @@
 
 	/*=============================================================================================*/
 	/* PLAY */
-	
 	/* changes to the main PLAY area */
 	.playtab {
 		display: inline;
@@ -102,7 +101,7 @@
 
 	/* Weather label and weather type (i.e. Horizon). Weather type has to be selected using first-child because it's currently sitting in an unclassed paragraph tag, but this works fine */
 	.playtab__weather__label,
-	.playtab__weather:first-child{
+	.playtab__weather:first-child {
 		font-size: 16px;
 		display: inline;
 	}
@@ -146,7 +145,7 @@
 	.game-widget__atbat {
 		width: auto;
 	}
-	
+
 	.game-widget__atbat__row {
 		display: inline-flex;
 		gap: 1em;
@@ -160,12 +159,19 @@
 		height: 32px;
 		width: 32px;
 	}
-	
+
 	/* bases indicator */
 	.game-widget__field {
 		min-height: 100px;
 		min-width: 140px;
 	}
+
+	/* post-game team emoji display size - I've elected to just make the emoji fill the box out rather than increasing the box size for now */
+	.game-widget__box-icon img {
+		height: 100%;
+		width: 100%;
+	}
+
 	/*=============================================================================================*/
 	/* LEAGUE */
 	/* Force overwrite for the League Name text (for some reason) */
@@ -227,7 +233,6 @@
 		width: 40px;
 		padding: 0 12px;
 	}
-
 	./*=============================================================================================*/
 	/* BETTING */
 	/* Narrow betting windows for 1080p - Anything smaller than that and I let the base code take over and do its thing */
@@ -260,6 +265,11 @@
 
 	.bet-widget__record {
 		font-size: 18px;
+	}
+	
+	/* centers weather type over the betting widgets - there's css here referring to weather label as well (fron the site, directly) but it's currently unused. */
+	.playtab__weather__label, .playtab__weather:first-child {
+		margin: auto;
 	}
 	/*=============================================================================================*/
 	/* VOTING */
