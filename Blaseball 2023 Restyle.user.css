@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Blaseball 2023 Restyle
 @namespace      https://github.com/eltrov/Custom-Userstyles
-@version        1.4.2
+@version        1.4.3
 @description    A new userstyle Blaseball's 2023 relaunch
 @author         eltrov
 ==/UserStyle== */
@@ -149,12 +149,13 @@
 	.game-widget__atbat__row {
 		display: inline-flex;
 		gap: 1em;
+		width: 100%
 	}
 	/* border between Pitcher and Batter lines */
 	.game-widget__atbat__row:nth-child(1) {
 		border-bottom: 1px solid #3d414c;
 	}
-
+	
 	.game-widget__arrow {
 		height: 32px;
 		width: 32px;
