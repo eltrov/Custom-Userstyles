@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Blaseball 2023 Restyle
 @namespace      https://github.com/eltrov/Custom-Userstyles
-@version        1.2.6
+@version        1.2.7
 @description    A new userstyle Blaseball's 2023 relaunch
 @author         eltrov
 ==/UserStyle== */
@@ -211,6 +211,24 @@
 		font-size: 22px;
 	}
 
+	.bet-widget__info {
+		font-size: 22px;
+	}
+	
+	.bet-widget__record {
+		font-size: 18px;
+	}
+	
+	.bet-widget__emoji {
+		border-radius: 50%;
+		width: 60px;
+		height: 60px;
+	}
+	
+	.bet-widget__emoji img {
+		width: 48px;
+		height: 48px;
+	}
 	/*=============================================================================================*/
 	/* VOTING */
 	/*=============================================================================================*/
