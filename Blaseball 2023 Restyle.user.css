@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Blaseball 2023 Restyle
 @namespace      https://github.com/eltrov/Custom-Userstyles
-@version        1.4.3
+@version        1.4.4
 @description    A new userstyle Blaseball's 2023 relaunch
 @author         eltrov
 ==/UserStyle== */
@@ -155,7 +155,7 @@
 	.game-widget__atbat__row:nth-child(1) {
 		border-bottom: 1px solid #3d414c;
 	}
-	
+
 	.game-widget__arrow {
 		height: 32px;
 		width: 32px;
@@ -197,19 +197,8 @@
 		padding: 4px 0;
 	}
 
-	/* Division rank text fix for large team emoji */
-	.League-DivisionCard-Rank {
-		margin: auto;
-		font-size: 24px;
-	}
-
-	.WinLossValues {
-		font-size: 24px;
-	}
-
-	.League-DivisionCard-Title {
-		font-size: 32px;
-		text-align: center;
+	.League-DivisionCard-Headings .RankTeam {
+		gap: 104px;
 	}
 
 	/* Re-aligning the Team column header to line up with team  */
@@ -219,13 +208,28 @@
 		font-size: 22px;
 	}
 
-	.League-DivisionCard-Headings .RankTeam {
-		gap: 100px;
+	/* Division rank text fix for large team emoji */
+	.League-DivisionCard-Rank {
+		margin: auto;
+		font-size: 24px;
 	}
 
 	.League-DivisionCard-Headings .WinLoss {
 		gap: 28px;
-		padding-right: 2px;
+		padding-right: 8px;
+	}
+
+	.League-DivisionCard-ListItem .WinLossValues {
+		padding-right: 6px;
+	}
+
+	.WinLossValues {
+		font-size: 24px;
+	}
+
+	.League-DivisionCard-Title {
+		font-size: 32px;
+		text-align: center;
 	}
 
 	/* Making sure everything is lined up without using monospaced font */
@@ -267,9 +271,10 @@
 	.bet-widget__record {
 		font-size: 18px;
 	}
-	
+
 	/* centers weather type over the betting widgets - there's css here referring to weather label as well (fron the site, directly) but it's currently unused. */
-	.playtab__weather__label, .playtab__weather:first-child {
+	.playtab__weather__label,
+	.playtab__weather:first-child {
 		margin: auto;
 	}
 	/*=============================================================================================*/
