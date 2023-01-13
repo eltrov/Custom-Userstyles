@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Blaseball 2023 Restyle
 @namespace      https://github.com/eltrov/Custom-Userstyles
-@version        1.4.4
+@version        1.4.5
 @description    A new userstyle Blaseball's 2023 relaunch
 @author         eltrov
 ==/UserStyle== */
@@ -9,11 +9,19 @@
 	/*=============================================================================================*/
 	/* General Rules */
 	:root {
-		/* Ideal size for emoji containers */
+		/* I've unintentionally landed on a 3:4 rule for team emojis and containers, so emojis are 75% the size of the container they're placed in*/
+		
+		/* emoji container size for most of the site */
 		--bg-emoji: 64px;
 
-		/* Idea size for emoji imgae */
+		/* emoji imgae size for most of the site*/
 		--sm-emoji: 48px;
+		
+		/* emoji container size for team page */
+		--tm-bg-emoji: 96px;
+		
+		/* emoji image size for team page */
+		--tm-sm-emoji: 72px;
 	}
 
 	/* This is generally bad practice and it just a placeholer for now. I'm not opposed to a new font but I will admit I'm mostly trying to recapture the look and feel of the original layout */
@@ -280,4 +288,23 @@
 	/*=============================================================================================*/
 	/* VOTING */
 	/*=============================================================================================*/
+	
+	/*=============================================================================================*/
+	/* TEAMS */
+	/*=============================================================================================*/
+	/* center everything */
+	.TeamLayout .TeamHeader {
+		text-align: center;
+	}
+	
+	/* more centering */
+	.TeamLayout .TeamLogo,
+	.TeamLayout .TeamModificationsRow {
+		margin: auto;
+	}
+	
+	.TeamLogo img {
+		height: var(--tm-sm-emoji);
+		width: var(--tm-sm-emoji);
+	}
 }
