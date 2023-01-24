@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Blaseball 2023 Redesign
 @namespace      https://github.com/eltrov/Custom-Userstyles
-@version        1.5.1
+@version        1.5.2
 @description    A new userstyle Blaseball's 2023 relaunch
 @author         eltrov
 ==/UserStyle== */
@@ -417,16 +417,17 @@
 	}
 
 	/* Adding some redundancy here for the future. I have to tweak these gap values pretty regularly and I may, in future, need to tweak them individuallty for 3440p vs 1080p*/
-	@media(min-width: 1921px) {
-		.League-DivisionCard-Headings .RankTeam {
-			gap: 100px;
-		}
-	}
 	@media(min-width: 1920px) {
 		.League-DivisionCard-Headings .RankTeam {
 			gap: 100px;
 		}
 	}
+	@media(min-width: 1921px) {
+		.League-DivisionCard-Headings .RankTeam {
+			gap: 100px;
+		}
+	}
+
 
 	/* Re-aligning the Team column header to line up with team  */
 	.League-DivisionCard-Headings,
@@ -474,18 +475,8 @@
 
 	/*=============================================================================================*/
 	/* BETTING */
-	/* This setting is specifically tuned to my personal use with a 3440x1440 monitor */
-	@media(min-width: 1921px) {
-		.bet-widget__list {
-			width: 34%;
-		}
-	}
-
-	/* Narrow betting windows for 1080p - Anything smaller than that and I let the base code take over and do its thing */
-	@media(min-width: 1920px) {
-		.bet-widget__list {
-			width: 65%;
-		}
+	.bet-widget__list {
+		width: 33%;
 	}
 
 	.bet-widget__wager {
