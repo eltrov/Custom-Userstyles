@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Blaseball 2023 Redesign
 @namespace      https://github.com/eltrov/Custom-Userstyles
-@version        1.5.0
+@version        1.5.1
 @description    A new userstyle Blaseball's 2023 relaunch
 @author         eltrov
 ==/UserStyle== */
@@ -222,8 +222,24 @@
 		font-size: 22px;
 	}
 
-	.playtab__cover {
-		width: 25%;
+
+
+	@media(min-width: 1900px) {
+		.playtab__cover {
+			width: 50%;
+		}
+	}
+
+	@media(min-width: 2550px) {
+		.playtab__cover {
+			width: 35%;
+		}
+	}
+
+	@media(min-width: 3400px) {
+		.playtab__cover {
+			width: 25%;
+		}
 	}
 
 	.playtab__cover-cta-title,
