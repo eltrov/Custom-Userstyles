@@ -10,7 +10,6 @@
 	/*=============================================================================================*/
 	/* General Rules */
 	:root {
-		/* I've unintentionally landed on a 3:4 rule for team emojis and containers, so emojis are 75% the size of the container they're placed in*/
 		/* emoji container size for most of the site */
 		--bg-emoji: 60px;
 
