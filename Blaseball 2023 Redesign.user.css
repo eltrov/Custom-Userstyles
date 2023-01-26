@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Blaseball 2023 Redesign
 @namespace      https://github.com/eltrov/Custom-Userstyles
-@version        1.5.3
+@version        1.5.4
 @description    A new userstyle Blaseball's 2023 relaunch
 @author         eltrov
 ==/UserStyle== */
@@ -397,7 +397,8 @@
 	
 	.schedule__day--selected--active,
 	.schedule__day--selected,
-	.schedule__day--selected--inactive {
+	.schedule__day--selected--inactive,
+	.schedule__day--active{
 		background: black;
 		filter: invert(100%);
 		
