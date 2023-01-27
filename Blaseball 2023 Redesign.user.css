@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Blaseball 2023 Redesign
 @namespace      https://github.com/eltrov/Custom-Userstyles
-@version        1.5.4
+@version        1.5.5
 @description    A new userstyle Blaseball's 2023 relaunch
 @author         eltrov
 ==/UserStyle== */
@@ -394,15 +394,13 @@
 		height: 100%;
 		width: 100%;
 	}
-	
+
 	.schedule__day--selected--active,
 	.schedule__day--selected,
 	.schedule__day--selected--inactive,
-	.schedule__day--active{
+	.schedule__day--active {
 		background: black;
 		filter: invert(100%);
-		
-		
 	}
 	.schedule__day:hover {
 		background: black;
@@ -641,6 +639,7 @@
 
 	/*=============================================================================================*/
 	/* PROFILE */
+	/*=============================================================================================*/
 	.account__tabs__link,
 	.account__tabs__link:hover,
 	.account__tabs__link a,
@@ -697,5 +696,48 @@
 		color: white;
 		user-select: text;
 	}
+
+
 	/*=============================================================================================*/
+	/* MESSAGES */
+	/*=============================================================================================*/
+	.Post {
+		padding: 16px 32px;
+	}
+
+	/* Adding some redundancy here for the future. I have to tweak these gap values pretty regularly and I may, in future, need to tweak them individuallty for 3440p vs 1080p*/
+	@media(min-width: 1920px) {
+		.PostFeed-Body {
+			width: 50%;
+		}
+	}
+	@media(min-width: 1921px) {
+		.PostFeed-Body {
+			width: 30%;
+		}
+	}
+
+
+	.Post-Title {
+		font-size: 36px;
+	}
+
+	.Post-Text {
+		font-size: 22px;
+	}
+
+	.PostUser-Avatar,
+	.PostUser-Avatar img {
+		width: var(--bg-emoji);
+		height: var(--bg-emoji);
+	}
+
+	.PostUser-Username-OriginalPost {
+		font-size: 16px;
+	}
+
+
+	.Post-ActionBar-Text {
+		font-size: 16px;
+	}
 }
