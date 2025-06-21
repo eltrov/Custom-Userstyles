@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           youtube.com - 3/22/2023, 2:42:58 PM
 @namespace      github.com/openstyles/stylus
-@version        1.2.0
+@version        1.4.0
 @description    A new userstyle to revert some YouTube changes - namely re-square video thumbnails, plus some other various stuff
 @author         eltrov
 ==/UserStyle== */
@@ -61,7 +61,15 @@
 			--ytd-rich-grid-items-per-row: 5;
 		}
 	}
-
+	
+	/* for half-width 1080p screen */
+	/* This increases the display from 5 to 6 thumbnails per line */
+	@media (max-width: 970px) {
+		.style-scope.ytd-rich-grid-renderer {
+			--ytd-rich-grid-items-per-row: 2;
+		}
+	}
+	
 	/* Case for 1920x1080 monitors */
 	/* This increases the display from 5 to 6 thumbnails per line */
 	@media (min-width: 1920px) and (max-width: 1920px) {
@@ -70,6 +78,8 @@
 		}
 	}
 
+
+	
 	.ytd-rich-item-renderer {
 		margin-bottom: -10px;
 	}
@@ -80,7 +90,7 @@
 	
 	/* Live text over the profile picture - background color */
 	.yt-spec-avatar-shape--cairo-refresh .yt-spec-avatar-shape__live-badge {
-		background-color: #e1002d; 
+		background-color: red; 
 		/* default:
 		background-color: #e1002d;
 		*/
@@ -112,11 +122,18 @@
 	
 	/* Tag for all badges proceding stream title, like LIVE or PREMIER, this also hides tags that denote paid content, might not want to remove it just yet*/
 	.style-scope.ytd-badge-supported-renderer {
-		/*
-		display: none;
-		*/
+		display: flex;
+        /* display flex is a placeholder if I want to modify this later*/ 
 	}
 	
+	/* pair of styles to make the livestream badge appear as "Live" instead of all caps*/
+	p.style-scope.ytd-badge-supported-renderer::first-letter {
+		text-transform: uppercase;
+	}
+	
+	p.style-scope.ytd-badge-supported-renderer {
+		text-transform: lowercase;
+	}
 	
 	/* This is the bit that lets you change the color of the progress bar. It was made into a gradent from a solid red colore recently (at time of writing, 10/18/2024 */
 	/* This ONLY applies to video thumbails viewed in the Home and Subscription tabs and NOT the progress bar when watching a video. That's below. */
@@ -140,13 +157,15 @@
 	}
 	
 	/* Color settings for progress bar while watching a video */
-	.ytp-cairo-refresh-signature-moments .ytp-play-progress {
+    /* OLD - .ytp-cairo-refresh-signature-moments .ytp-play-progress */
+    /* .ytp-progress-bar looks like the bar's background */ 
+	.ytp-play-progress{
 		/*
 		background: red;
 		background: linear-gradient(to right, red 0%, white 100%);
 		*/
 		/* big gay progress bar, courtesy of ChatGPT*/
-		background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+		background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet) !important;
 		border: 1px solid black;
 		/* this part naturally seems to have a border so don't add another one */
 	}
@@ -201,11 +220,117 @@
 		
 		
 	}
-	/* delete chat - buffering fix on firefox 
-	div#chat-container {
-		display: none;
-	}
-	
-	this isn't working. I need to completely remove the object instead of just hiding it.
-	*/
+    
+    .style-scope.yt-chip-cloud-renderer:nth-child(1) > iron-selector#chips:nth-child(2) {
+        background-color: pink;
+    }
+    
+
+
+    
+    /* Removes everything except Home and Subscriptions from the mini sidebar*/
+    #items > ytd-mini-guide-entry-renderer:nth-of-type(2),
+    #items > ytd-mini-guide-entry-renderer:nth-of-type(4),
+    #items > ytd-mini-guide-entry-renderer:nth-of-type(5),
+    #items > ytd-mini-guide-entry-renderer:nth-of-type(6)
+    {
+        display: none;
+    }
+    
+    /* Removes Shorts from the main sidebar*/
+    #items > ytd-guide-entry-renderer:nth-of-type(2),
+    #items > ytd-guide-entry-renderer:nth-of-type(4)
+    {
+        display: none;
+    }
+    
+    /* Removes Your Videos, Your Podcasts, Watch Later, Like Videos, Downloads, Your Clips from the You submenu on the main sidebar*/
+    ytd-guide-collapsible-section-entry-renderer > div:nth-of-type(2) > ytd-guide-entry-renderer:nth-of-type(3), /* Your videos    */
+    ytd-guide-collapsible-section-entry-renderer > div:nth-of-type(2) > ytd-guide-entry-renderer:nth-of-type(4), /* Your podcasts  */
+    ytd-guide-collapsible-section-entry-renderer > div:nth-of-type(2) > ytd-guide-entry-renderer:nth-of-type(5), /* Watch later    */
+    ytd-guide-collapsible-section-entry-renderer > div:nth-of-type(2) > ytd-guide-entry-renderer:nth-of-type(6), /* Liked videos   */
+    ytd-guide-collapsible-section-entry-renderer > div:nth-of-type(2) > ytd-guide-entry-renderer:nth-of-type(7), /* Your clips     */
+    ytd-guide-collapsible-section-entry-renderer > div:nth-of-type(2) > ytd-guide-downloads-entry-renderer       /* Downloads      */
+    {
+        display: none;
+    }
+    
+    /* Removes the Subscription, Explore, and More from Youtube sections from the main sidebar*/
+    #sections > ytd-guide-section-renderer:nth-of-type(2), /* Subscription */
+    #sections > ytd-guide-section-renderer:nth-of-type(3), /* Explore */
+    #sections > ytd-guide-section-renderer:nth-of-type(4), /* More from YouTube */
+    #sections > ytd-guide-section-renderer:nth-of-type(5)  /* Settings, Report history, Help, Send feedback */
+    {
+        display: none;
+    }
+    
+    #footer 
+    {
+        display: none;
+    }
+    
+    ytd-video-meta-block[rich-meta] #metadata-line.ytd-video-meta-block {
+        overflow: visible;
+        height: auto;
+    }
+    
+    #buttons.ytd-rich-grid-media > .ytd-rich-grid-media {
+        margin-top: 25px;
+    }
+    
+    /* Removes gaps from where row breaks were on the Home screen */
+    /* 
+    Without the script, alternating rows of the Home screen are things like shorts and community posts. 
+    Removing them leaves us with just videos, but they're still separated in short rows. 
+    Removing the hard limit lets the videos all display in a continuous row, like on the Subscriptions page 
+    */
+    ytd-rich-section-renderer {
+        display: none;
+    }
+    
+    /* This aligns the grid, removing the crappy margin calculation for the first video after a section break, that we removed above */
+    ytd-rich-item-renderer[rendered-from-rich-grid][is-in-first-column]{
+       margin-left: 8px;
+    }
+
+    /* MIX DELETER V1 - Home Page */
+   ytd-rich-item-renderer:has(yt-lockup-view-model .yt-lockup-view-model-wiz--vertical)
+    {
+        display: none;
+    }
+
+    
+    /* MIX DELETER V2 - Search Page */
+   ytd-item-section-renderer[top-spacing-zero]:first-child
+    {
+        display: none;
+    }
+    
+    /* There doesn't seem to be any consistency with the location of specific chips here so blocking by N type won't work*/
+    /* this new one removes everything that isn't "Related" by name
+    iron-selector#chips > yt-chip-cloud-chip-renderer:not(:has(yt-formatted-string[title="Related"])) {
+        background-color: yellow;
+        display: none;
+    }
+    */
+    /*
+    yt-formatted-string[title=""] {
+        background-color: lime;
+    }
+    */
+    
+    /*
+    Mix/Playlist Blocker-Outer
+    No longer needed as we can remove Mixes ONLY and leave playlists
+
+    .collections-stack-wiz__collection-stack2 {
+        z-index: 3;
+        opacity: 100%;
+        height: 105%;
+        width: 100%;
+        left: 0px; 
+    }
+    */
+    
 }
+    
