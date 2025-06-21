@@ -1,0 +1,211 @@
+/* ==UserStyle==
+@name           youtube.com - 3/22/2023, 2:42:58 PM
+@namespace      github.com/openstyles/stylus
+@version        1.2.0
+@description    A new userstyle to revert some YouTube changes - namely re-square video thumbnails, plus some other various stuff
+@author         eltrov
+==/UserStyle== */
+
+@-moz-document domain("youtube.com") {
+	
+	:root {
+		--eltrov-bar-foreground: #FF0000AA;	
+		--eltrov-bar-background: #F0F0F000;
+	}
+	
+	/* Home and Subscriptions pages */
+	ytd-thumbnail[size="large"] a.ytd-thumbnail, ytd-thumbnail[size="large"]::before,
+	
+	/* Recommended sidebar */
+	ytd-thumbnail[size="medium"] a.ytd-thumbnail, ytd-thumbnail[size="medium"]::before {
+		border-radius: 0px;
+	}
+	
+	/* Post-Video Suggested */
+	.ytp-videowall-still-round-large .ytp-videowall-still-image,
+	.ytp-videowall-still-round-medium .ytp-videowall-still-image {
+		border-radius: 0px;
+	}
+	
+	/* hides Shorts on Subscription tab */
+	.style-scope ytd-rich-shelf-renderer {
+		display: none;
+	}
+	
+	/* Hides Shorts from recommended sidebar (added 8/26/23) */
+	ytd-reel-shelf-renderer {
+		display: none;
+	}
+	
+	/* extra layout stuff for later or maybe never
+	--ytd-rich-grid-item-max-width: 250px;
+	--ytd-rich-grid-item-min-width: 250px;
+	--ytd-rich-grid-posts-per-row: 1;
+	--ytd-rich-grid-slim-items-per-row: 9;
+	--ytd-rich-grid-game-cards-per-row: 9;
+	*/
+	
+	/* 10 thumbnail per row layout for 3440x1440 display */
+	/* This is an increase from 6 > 10 at fullscreen */
+	@media (max-width: 3440px) {
+		.style-scope.ytd-rich-grid-renderer {
+		--ytd-rich-grid-items-per-row: 10;
+		}
+	}
+	
+	/* 5 thumbnail per row layout for half-width 3440x1440 display */
+	/* The ordering here is very important. This needs to be below the 3440 width */
+	/* This is an increase from 4 > 5 at half-fullscreen */
+	@media (max-width: 1720px) {
+		.style-scope.ytd-rich-grid-renderer {
+			--ytd-rich-grid-items-per-row: 5;
+		}
+	}
+
+	/* Case for 1920x1080 monitors */
+	/* This increases the display from 5 to 6 thumbnails per line */
+	@media (min-width: 1920px) and (max-width: 1920px) {
+		.style-scope.ytd-rich-grid-renderer {
+			--ytd-rich-grid-items-per-row: 6;
+		}
+	}
+
+	.ytd-rich-item-renderer {
+		margin-bottom: -10px;
+	}
+	
+	ytd-watch-flexy[rounded-player-large][default-layout] #ytd-player.ytd-watch-flexy {
+		border-radius: 0px;
+	}
+	
+	/* Live text over the profile picture - background color */
+	.yt-spec-avatar-shape--cairo-refresh .yt-spec-avatar-shape__live-badge {
+		background-color: #e1002d; 
+		/* default:
+		background-color: #e1002d;
+		*/
+	}	
+	
+	/* Text controls for the above "LIVE" text */
+	.yt-spec-avatar-shape__badge-text {
+		display: none;
+		/* default:
+		color: #fff;
+		*/
+	}
+	
+	/* Channel profile picture live notifier ring gradient */
+	.yt-spec-avatar-shape--cairo-refresh.yt-spec-avatar-shape--live-ring::after {
+		background: red; 
+		/*
+			#F0F0F0 is the opposite of the dark-mode background color #0F0F0F 
+			not sure if the inverse is the best color but it stands out nice
+			a basic #f00 works well too
+			this can be whatever, though
+		*/
+		
+		/* background: radial-gradient(#e66465, #9198e5); */
+		/* default:
+		background: linear-gradient(to top right,#e1002d 60%,#e01378 85%);
+		*/
+	}
+	
+	/* Tag for all badges proceding stream title, like LIVE or PREMIER, this also hides tags that denote paid content, might not want to remove it just yet*/
+	.style-scope.ytd-badge-supported-renderer {
+		/*
+		display: none;
+		*/
+	}
+	
+	
+	/* This is the bit that lets you change the color of the progress bar. It was made into a gradent from a solid red colore recently (at time of writing, 10/18/2024 */
+	/* This ONLY applies to video thumbails viewed in the Home and Subscription tabs and NOT the progress bar when watching a video. That's below. */
+	ytd-thumbnail-overlay-resume-playback-renderer[enable-refresh-signature-moments-web] #progress.ytd-thumbnail-overlay-resume-playback-renderer{
+		/* default:
+		background: linear-gradient(to right,#f03 80%,#ff2791 100%);*/
+		/* background: linear-gradient(to right,blue, green); */
+		/*background: #FF0000AA;*/
+		background: var(--eltrov-bar-foreground);
+		border: 1px solid black;
+		/* */
+	}
+	
+	/* I think this is for the grey backing bit to the progress bar */
+	ytd-thumbnail-overlay-resume-playback-renderer {
+		/* default:
+		background-color: var(--yt-spec-text-disabled);
+		*/
+		background: var(--eltrov-bar-background);
+		/* made the bar completely transparent, not sure how I like the feel of this just yet. */
+	}
+	
+	/* Color settings for progress bar while watching a video */
+	.ytp-cairo-refresh-signature-moments .ytp-play-progress {
+		/*
+		background: red;
+		background: linear-gradient(to right, red 0%, white 100%);
+		*/
+		/* big gay progress bar, courtesy of ChatGPT*/
+		background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+		border: 1px solid black;
+		/* this part naturally seems to have a border so don't add another one */
+	}
+	
+	/*
+	Color setting for unwatched area on video page 
+	This applies to both the shaded buffered zone and the non-buffered zone
+	*/
+	.ytp-progress-list {
+		background: #F0F0F0;
+		/*
+		Adding a border here works but because this bit is a parent (?) of the actuall progress part above, it doubles up the border on the colored part
+		Just adding a border here and not to the colored part looks nice. it goes all the way across teh scrobbler and isn't un-evenly weighted/bordered
+		
+		The alternative of JUST having the border on the color part is that there's a firm black border on the head of the progress bar (where it meets the background/buffer zone)
+		I think this is my preferred version of this
+		
+		border: 1px solid black;
+		*/
+		
+	}
+	
+	/* Video runtime badge or UPCOMING text*/
+	.badge-shape-wiz--thumbnail-default {
+		margin-top: 20px;
+		color: #f0f0f0;
+		background: rgba(45, 45, 45, 1.0);
+		border-radius: 0 0 0 0;
+		padding-right: 8px;
+		
+		/* 
+		this anchors the badge text in the bottom-right corner of a thumbnail instead of leaving a thick border. 
+		flush is probably too much? (flush being top=10, left=10)
+		it looks like the progress bar is about 4px tall (including the 1px border) so making top = 6px and left to match seems good
+		
+		another try
+		30% top-right border radius with the badge flush to the thumbnail looks kind cool. it'll still clash with the progress bar if it's full, but oh well.
+		With the badge flush like this, I feel better about setting the alpha for it to 1.0		
+		*/
+		
+		position: relative;
+		float: right;
+		top: 10px;
+		left: 10px;
+		
+		/* 
+		this "fixes" the clash issue by forcing the badge to be drawn over the bar. Obviously the drawback is that if you watched 90% of a video you can't see that, but I think this is fine?
+		999 as a z-index is also likely to cause issues down the line, but I don't feel like incrementing it from 1 until it works		
+		*/
+		z-index: 999;
+		
+		
+		
+	}
+	/* delete chat - buffering fix on firefox 
+	div#chat-container {
+		display: none;
+	}
+	
+	this isn't working. I need to completely remove the object instead of just hiding it.
+	*/
+}
