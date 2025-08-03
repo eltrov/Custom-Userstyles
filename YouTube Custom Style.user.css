@@ -1,182 +1,179 @@
 /* ==UserStyle==
 @name           youtube.com - 3/22/2023, 2:42:58 PM
 @namespace      github.com/openstyles/stylus
-@version        1.4.0
+@version        1.4.1
 @description    A new userstyle to revert some YouTube changes - namely re-square video thumbnails, plus some other various stuff
 @author         eltrov
 ==/UserStyle== */
-
 @-moz-document domain("youtube.com") {
-	
-	:root {
-		--eltrov-bar-foreground: #FF0000AA;	
-		--eltrov-bar-background: #F0F0F000;
-	}
-	
-	/* Home and Subscriptions pages */
-	ytd-thumbnail[size="large"] a.ytd-thumbnail, ytd-thumbnail[size="large"]::before,
-	
-	/* Recommended sidebar */
-	ytd-thumbnail[size="medium"] a.ytd-thumbnail, ytd-thumbnail[size="medium"]::before {
-		border-radius: 0px;
-	}
-	
-	/* Post-Video Suggested */
-	.ytp-videowall-still-round-large .ytp-videowall-still-image,
-	.ytp-videowall-still-round-medium .ytp-videowall-still-image {
-		border-radius: 0px;
-	}
-	
-	/* hides Shorts on Subscription tab */
-	.style-scope ytd-rich-shelf-renderer {
-		display: none;
-	}
-	
-	/* Hides Shorts from recommended sidebar (added 8/26/23) */
-	ytd-reel-shelf-renderer {
-		display: none;
-	}
-	
-	/* extra layout stuff for later or maybe never
+
+    :root {
+        --eltrov-bar-foreground: #FF0000AA;
+        --eltrov-bar-background: #F0F0F000;
+    }
+
+    /* Home and Subscriptions pages */
+    ytd-thumbnail[size="large"] a.ytd-thumbnail,
+    ytd-thumbnail[size="large"]::before,
+
+    /* Recommended sidebar */
+    ytd-thumbnail[size="medium"] a.ytd-thumbnail,
+    ytd-thumbnail[size="medium"]::before {
+        border-radius: 0px;
+    }
+
+    /* Post-Video Suggested */
+    .ytp-videowall-still-round-large .ytp-videowall-still-image,
+    .ytp-videowall-still-round-medium .ytp-videowall-still-image {
+        border-radius: 0px;
+    }
+
+    /* hides Shorts on Subscription tab */
+    .style-scope ytd-rich-shelf-renderer {
+        display: none;
+    }
+
+    /* Hides Shorts from recommended sidebar (added 8/26/23) */
+    ytd-reel-shelf-renderer {
+        display: none;
+    }
+
+    /* extra layout stuff for later or maybe never
 	--ytd-rich-grid-item-max-width: 250px;
 	--ytd-rich-grid-item-min-width: 250px;
 	--ytd-rich-grid-posts-per-row: 1;
 	--ytd-rich-grid-slim-items-per-row: 9;
 	--ytd-rich-grid-game-cards-per-row: 9;
 	*/
-	
-	/* 10 thumbnail per row layout for 3440x1440 display */
-	/* This is an increase from 6 > 10 at fullscreen */
-	@media (max-width: 3440px) {
-		.style-scope.ytd-rich-grid-renderer {
-		--ytd-rich-grid-items-per-row: 10;
-		}
-	}
-	
-	/* 5 thumbnail per row layout for half-width 3440x1440 display */
-	/* The ordering here is very important. This needs to be below the 3440 width */
-	/* This is an increase from 4 > 5 at half-fullscreen */
-	@media (max-width: 1720px) {
-		.style-scope.ytd-rich-grid-renderer {
-			--ytd-rich-grid-items-per-row: 5;
-		}
-	}
-	
-	/* for half-width 1080p screen */
-	/* This increases the display from 5 to 6 thumbnails per line */
-	@media (max-width: 970px) {
-		.style-scope.ytd-rich-grid-renderer {
-			--ytd-rich-grid-items-per-row: 2;
-		}
-	}
-	
-	/* Case for 1920x1080 monitors */
-	/* This increases the display from 5 to 6 thumbnails per line */
-	@media (min-width: 1920px) and (max-width: 1920px) {
-		.style-scope.ytd-rich-grid-renderer {
-			--ytd-rich-grid-items-per-row: 6;
-		}
-	}
+    
+    /*************************/
+    
+    /* for full-width 3440x1440 screen*/
+    @media (max-width: 3440px) {
+        .style-scope.ytd-rich-grid-renderer {
+            --ytd-rich-grid-items-per-row: 10;
+        }
+    }
+
+    /* for half-width 3440x1440 screen */
+    @media (max-width: 1720px) {
+        .style-scope.ytd-rich-grid-renderer {
+            --ytd-rich-grid-items-per-row: 4;
+        }
+    }
+
+    /* for half-width 1080p screen */
+    @media (max-width: 970px) {
+        .style-scope.ytd-rich-grid-renderer {
+            --ytd-rich-grid-items-per-row: 3;
+        }
+    }
+
+    /* for full-width 1920x1080 screen */
+    @media (min-width: 1920px) and (max-width: 1920px) {
+        .style-scope.ytd-rich-grid-renderer {
+            --ytd-rich-grid-items-per-row: 6;
+        }
+    }
 
 
-	
-	.ytd-rich-item-renderer {
-		margin-bottom: -10px;
-	}
-	
-	ytd-watch-flexy[rounded-player-large][default-layout] #ytd-player.ytd-watch-flexy {
-		border-radius: 0px;
-	}
-	
-	/* Live text over the profile picture - background color */
-	.yt-spec-avatar-shape--cairo-refresh .yt-spec-avatar-shape__live-badge {
-		background-color: red; 
-		/* default:
+    /*************************/
+    .ytd-rich-item-renderer {
+        margin-bottom: -10px;
+    }
+
+    ytd-watch-flexy[rounded-player-large][default-layout] #ytd-player.ytd-watch-flexy {
+        border-radius: 0px;
+    }
+
+    /* Live text over the profile picture - background color */
+    .yt-spec-avatar-shape--cairo-refresh .yt-spec-avatar-shape__live-badge {
+        background-color: red;
+        /* default:
 		background-color: #e1002d;
 		*/
-	}	
-	
-	/* Text controls for the above "LIVE" text */
-	.yt-spec-avatar-shape__badge-text {
-		display: none;
-		/* default:
+    }
+
+    /* Text controls for the above "LIVE" text */
+    .yt-spec-avatar-shape__badge-text {
+        display: none;
+        /* default:
 		color: #fff;
 		*/
-	}
-	
-	/* Channel profile picture live notifier ring gradient */
-	.yt-spec-avatar-shape--cairo-refresh.yt-spec-avatar-shape--live-ring::after {
-		background: red; 
-		/*
+    }
+
+    /* Channel profile picture live notifier ring gradient */
+    .yt-spec-avatar-shape--cairo-refresh.yt-spec-avatar-shape--live-ring::after {
+        background: red;
+        /*
 			#F0F0F0 is the opposite of the dark-mode background color #0F0F0F 
 			not sure if the inverse is the best color but it stands out nice
 			a basic #f00 works well too
 			this can be whatever, though
 		*/
-		
-		/* background: radial-gradient(#e66465, #9198e5); */
-		/* default:
+        /* background: radial-gradient(#e66465, #9198e5); */
+        /* default:
 		background: linear-gradient(to top right,#e1002d 60%,#e01378 85%);
 		*/
-	}
-	
-	/* Tag for all badges proceding stream title, like LIVE or PREMIER, this also hides tags that denote paid content, might not want to remove it just yet*/
-	.style-scope.ytd-badge-supported-renderer {
-		display: flex;
-        /* display flex is a placeholder if I want to modify this later*/ 
-	}
-	
-	/* pair of styles to make the livestream badge appear as "Live" instead of all caps*/
-	p.style-scope.ytd-badge-supported-renderer::first-letter {
-		text-transform: uppercase;
-	}
-	
-	p.style-scope.ytd-badge-supported-renderer {
-		text-transform: lowercase;
-	}
-	
-	/* This is the bit that lets you change the color of the progress bar. It was made into a gradent from a solid red colore recently (at time of writing, 10/18/2024 */
-	/* This ONLY applies to video thumbails viewed in the Home and Subscription tabs and NOT the progress bar when watching a video. That's below. */
-	ytd-thumbnail-overlay-resume-playback-renderer[enable-refresh-signature-moments-web] #progress.ytd-thumbnail-overlay-resume-playback-renderer{
-		/* default:
+    }
+
+    /* Tag for all badges proceding stream title, like LIVE or PREMIER, this also hides tags that denote paid content, might not want to remove it just yet*/
+    .style-scope.ytd-badge-supported-renderer {
+        display: flex;
+        /* display flex is a placeholder if I want to modify this later*/
+    }
+
+    /* pair of styles to make the livestream badge appear as "Live" instead of all caps*/
+    p.style-scope.ytd-badge-supported-renderer::first-letter {
+        text-transform: uppercase;
+    }
+
+    p.style-scope.ytd-badge-supported-renderer {
+        text-transform: lowercase;
+    }
+
+    /* This is the bit that lets you change the color of the progress bar. It was made into a gradent from a solid red colore recently (at time of writing, 10/18/2024 */
+    /* This ONLY applies to video thumbails viewed in the Home and Subscription tabs and NOT the progress bar when watching a video. That's below. */
+    ytd-thumbnail-overlay-resume-playback-renderer[enable-refresh-signature-moments-web] #progress.ytd-thumbnail-overlay-resume-playback-renderer {
+        /* default:
 		background: linear-gradient(to right,#f03 80%,#ff2791 100%);*/
-		/* background: linear-gradient(to right,blue, green); */
-		/*background: #FF0000AA;*/
-		background: var(--eltrov-bar-foreground);
-		border: 1px solid black;
-		/* */
-	}
-	
-	/* I think this is for the grey backing bit to the progress bar */
-	ytd-thumbnail-overlay-resume-playback-renderer {
-		/* default:
+        /* background: linear-gradient(to right,blue, green); */
+        /*background: #FF0000AA;*/
+        background: var(--eltrov-bar-foreground);
+        border: 1px solid black;
+        /* */
+    }
+
+    /* I think this is for the grey backing bit to the progress bar */
+    ytd-thumbnail-overlay-resume-playback-renderer {
+        /* default:
 		background-color: var(--yt-spec-text-disabled);
 		*/
-		background: var(--eltrov-bar-background);
-		/* made the bar completely transparent, not sure how I like the feel of this just yet. */
-	}
-	
-	/* Color settings for progress bar while watching a video */
+        background: var(--eltrov-bar-background);
+        /* made the bar completely transparent, not sure how I like the feel of this just yet. */
+    }
+
+    /* Color settings for progress bar while watching a video */
     /* OLD - .ytp-cairo-refresh-signature-moments .ytp-play-progress */
-    /* .ytp-progress-bar looks like the bar's background */ 
-	.ytp-play-progress{
-		/*
+    /* .ytp-progress-bar looks like the bar's background */
+    .ytp-play-progress {
+        /*
 		background: red;
 		background: linear-gradient(to right, red 0%, white 100%);
 		*/
-		/* big gay progress bar, courtesy of ChatGPT*/
-		background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet) !important;
-		border: 1px solid black;
-		/* this part naturally seems to have a border so don't add another one */
-	}
-	
-	/*
+        /* big gay progress bar, courtesy of ChatGPT*/
+        background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet) !important;
+        border: 1px solid black;
+        /* this part naturally seems to have a border so don't add another one */
+    }
+
+    /*
 	Color setting for unwatched area on video page 
 	This applies to both the shaded buffered zone and the non-buffered zone
 	*/
-	.ytp-progress-list {
-		background: #F0F0F0;
-		/*
+    .ytp-progress-list {
+        background: #F0F0F0;
+        /*
 		Adding a border here works but because this bit is a parent (?) of the actuall progress part above, it doubles up the border on the colored part
 		Just adding a border here and not to the colored part looks nice. it goes all the way across teh scrobbler and isn't un-evenly weighted/bordered
 		
@@ -185,18 +182,17 @@
 		
 		border: 1px solid black;
 		*/
-		
-	}
-	
-	/* Video runtime badge or UPCOMING text*/
-	.badge-shape-wiz--thumbnail-default {
-		margin-top: 20px;
-		color: #f0f0f0;
-		background: rgba(45, 45, 45, 1.0);
-		border-radius: 0 0 0 0;
-		padding-right: 8px;
-		
-		/* 
+    }
+
+    /* Video runtime badge or UPCOMING text*/
+    .badge-shape-wiz--thumbnail-default {
+        margin-top: 20px;
+        color: #f0f0f0;
+        background: rgba(45, 45, 45, 1.0);
+        border-radius: 0 0 0 0;
+        padding-right: 8px;
+
+        /* 
 		this anchors the badge text in the bottom-right corner of a thumbnail instead of leaving a thick border. 
 		flush is probably too much? (flush being top=10, left=10)
 		it looks like the progress bar is about 4px tall (including the 1px border) so making top = 6px and left to match seems good
@@ -205,79 +201,80 @@
 		30% top-right border radius with the badge flush to the thumbnail looks kind cool. it'll still clash with the progress bar if it's full, but oh well.
 		With the badge flush like this, I feel better about setting the alpha for it to 1.0		
 		*/
-		
-		position: relative;
-		float: right;
-		top: 10px;
-		left: 10px;
-		
-		/* 
+        position: relative;
+        float: right;
+        top: 10px;
+        left: 10px;
+
+        /* 
 		this "fixes" the clash issue by forcing the badge to be drawn over the bar. Obviously the drawback is that if you watched 90% of a video you can't see that, but I think this is fine?
 		999 as a z-index is also likely to cause issues down the line, but I don't feel like incrementing it from 1 until it works		
 		*/
-		z-index: 999;
-		
-		
-		
-	}
-    
+        z-index: 999;
+    }
+
     .style-scope.yt-chip-cloud-renderer:nth-child(1) > iron-selector#chips:nth-child(2) {
         background-color: pink;
     }
-    
 
 
-    
+
+
     /* Removes everything except Home and Subscriptions from the mini sidebar*/
     #items > ytd-mini-guide-entry-renderer:nth-of-type(2),
     #items > ytd-mini-guide-entry-renderer:nth-of-type(4),
     #items > ytd-mini-guide-entry-renderer:nth-of-type(5),
-    #items > ytd-mini-guide-entry-renderer:nth-of-type(6)
-    {
+    #items > ytd-mini-guide-entry-renderer:nth-of-type(6) {
         display: none;
     }
-    
+
     /* Removes Shorts from the main sidebar*/
     #items > ytd-guide-entry-renderer:nth-of-type(2),
-    #items > ytd-guide-entry-renderer:nth-of-type(4)
-    {
+    #items > ytd-guide-entry-renderer:nth-of-type(4) {
         display: none;
     }
-    
+
     /* Removes Your Videos, Your Podcasts, Watch Later, Like Videos, Downloads, Your Clips from the You submenu on the main sidebar*/
-    ytd-guide-collapsible-section-entry-renderer > div:nth-of-type(2) > ytd-guide-entry-renderer:nth-of-type(3), /* Your videos    */
-    ytd-guide-collapsible-section-entry-renderer > div:nth-of-type(2) > ytd-guide-entry-renderer:nth-of-type(4), /* Your podcasts  */
-    ytd-guide-collapsible-section-entry-renderer > div:nth-of-type(2) > ytd-guide-entry-renderer:nth-of-type(5), /* Watch later    */
-    ytd-guide-collapsible-section-entry-renderer > div:nth-of-type(2) > ytd-guide-entry-renderer:nth-of-type(6), /* Liked videos   */
-    ytd-guide-collapsible-section-entry-renderer > div:nth-of-type(2) > ytd-guide-entry-renderer:nth-of-type(7), /* Your clips     */
-    ytd-guide-collapsible-section-entry-renderer > div:nth-of-type(2) > ytd-guide-downloads-entry-renderer       /* Downloads      */
+    ytd-guide-collapsible-section-entry-renderer > div:nth-of-type(2) > ytd-guide-entry-renderer:nth-of-type(3),
+    /* Your videos    */
+    ytd-guide-collapsible-section-entry-renderer > div:nth-of-type(2) > ytd-guide-entry-renderer:nth-of-type(4),
+    /* Your podcasts  */
+    ytd-guide-collapsible-section-entry-renderer > div:nth-of-type(2) > ytd-guide-entry-renderer:nth-of-type(5),
+    /* Watch later    */
+    ytd-guide-collapsible-section-entry-renderer > div:nth-of-type(2) > ytd-guide-entry-renderer:nth-of-type(6),
+    /* Liked videos   */
+    ytd-guide-collapsible-section-entry-renderer > div:nth-of-type(2) > ytd-guide-entry-renderer:nth-of-type(7),
+    /* Your clips     */
+    ytd-guide-collapsible-section-entry-renderer > div:nth-of-type(2) > ytd-guide-downloads-entry-renderer/* Downloads      */
     {
         display: none;
     }
-    
+
     /* Removes the Subscription, Explore, and More from Youtube sections from the main sidebar*/
-    #sections > ytd-guide-section-renderer:nth-of-type(2), /* Subscription */
-    #sections > ytd-guide-section-renderer:nth-of-type(3), /* Explore */
-    #sections > ytd-guide-section-renderer:nth-of-type(4), /* More from YouTube */
-    #sections > ytd-guide-section-renderer:nth-of-type(5)  /* Settings, Report history, Help, Send feedback */
+    #sections > ytd-guide-section-renderer:nth-of-type(2),
+    /* Subscription */
+    #sections > ytd-guide-section-renderer:nth-of-type(3),
+    /* Explore */
+    #sections > ytd-guide-section-renderer:nth-of-type(4),
+    /* More from YouTube */
+    #sections > ytd-guide-section-renderer:nth-of-type(5)/* Settings, Report history, Help, Send feedback */
     {
         display: none;
     }
-    
-    #footer 
-    {
+
+    #footer {
         display: none;
     }
-    
+
     ytd-video-meta-block[rich-meta] #metadata-line.ytd-video-meta-block {
         overflow: visible;
         height: auto;
     }
-    
+
     #buttons.ytd-rich-grid-media > .ytd-rich-grid-media {
         margin-top: 25px;
     }
-    
+
     /* Removes gaps from where row breaks were on the Home screen */
     /* 
     Without the script, alternating rows of the Home screen are things like shorts and community posts. 
@@ -287,25 +284,25 @@
     ytd-rich-section-renderer {
         display: none;
     }
-    
+
     /* This aligns the grid, removing the crappy margin calculation for the first video after a section break, that we removed above */
-    ytd-rich-item-renderer[rendered-from-rich-grid][is-in-first-column]{
-       margin-left: 8px;
+    ytd-rich-item-renderer[rendered-from-rich-grid][is-in-first-column] {
+        margin-left: 8px;
     }
 
+
     /* MIX DELETER V1 - Home Page */
-   ytd-rich-item-renderer:has(yt-lockup-view-model .yt-lockup-view-model-wiz--vertical)
-    {
+    ytd-rich-item-renderer:has(yt-lockup-view-model .yt-lockup-view-model-wiz--vertical) {
         display: none;
     }
 
-    
-    /* MIX DELETER V2 - Search Page */
+
+    /* MIX DELETER V2 - Search Page THIS IS BROKEN
    ytd-item-section-renderer[top-spacing-zero]:first-child
     {
         display: none;
     }
-    
+    */
     /* There doesn't seem to be any consistency with the location of specific chips here so blocking by N type won't work*/
     /* this new one removes everything that isn't "Related" by name
     iron-selector#chips > yt-chip-cloud-chip-renderer:not(:has(yt-formatted-string[title="Related"])) {
@@ -318,7 +315,6 @@
         background-color: lime;
     }
     */
-    
     /*
     Mix/Playlist Blocker-Outer
     No longer needed as we can remove Mixes ONLY and leave playlists
@@ -331,6 +327,4 @@
         left: 0px; 
     }
     */
-    
 }
-    
